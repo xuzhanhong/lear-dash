@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/../20220322-文件上传下载在线删除功能应用示例/.idea/20220322-文件上传下载在线删除功能应用示例.iml" filepath="$PROJECT_DIR$/../20220322-文件上传下载在线删除功能应用示例/.idea/20220322-文件上传下载在线删除功能应用示例.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../20220329-excel上传并更新到数据库应用示例（PostgreSQL版本）/.idea/20220329-excel上传并更新到数据库应用示例（PostgreSQL版本）.iml" filepath="$PROJECT_DIR$/../20220329-excel上传并更新到数据库应用示例（PostgreSQL版本）/.idea/20220329-excel上传并更新到数据库应用示例（PostgreSQL版本）.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../20220827-仪表盘界面模板/.idea/20220827-仪表盘界面模板.iml" filepath="$PROJECT_DIR$/../20220827-仪表盘界面模板/.idea/20220827-仪表盘界面模板.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/20230301-供应商平台页面模板.iml" filepath="$PROJECT_DIR$/.idea/20230301-供应商平台页面模板.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../20230314-在dash应用中注册使用非系统字体/.idea/20230314-在dash应用中注册使用非系统字体.iml" filepath="$PROJECT_DIR$/../20230314-在dash应用中注册使用非系统字体/.idea/20230314-在dash应用中注册使用非系统字体.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../../Git/database-management-tool/.idea/database-management-tool.iml" filepath="$PROJECT_DIR$/../../Git/database-management-tool/.idea/database-management-tool.iml" />
+    </modules>
+  </component>
+</project>

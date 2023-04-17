@@ -28,6 +28,13 @@ app.layout = html.Div(
                 dcc.Store(
                     id={
                         'type': 'store-group',
+                        'index': 'confirm-task'
+                    },
+                    clear_data=True
+                ),
+                dcc.Store(
+                    id={
+                        'type': 'store-group',
                         'index': 'execute-task'
                     },
                     clear_data=True
@@ -109,6 +116,30 @@ app.layout = html.Div(
 
 
 @app.callback(
+    Output(
+        {
+            'type': 'store-group',
+            'index': 'confirm-task'
+        },
+        'data'
+    ),
+    # 随意选择Input，仅用于第二步页面内容加载后初始化触发任务执行使用
+    Input('confirm-button', 'id'),
+    State(
+        {
+            'type': 'store-group',
+            'index': 'create-task'
+        },
+        'data'
+    )
+)
+def confirm_task(nClicks):
+    return {
+        '支付成功': True
+    }
+
+
+@app.callback(
     Output('operation-container', 'children'),
     [
         Input(
@@ -124,12 +155,21 @@ app.layout = html.Div(
                 'index': 'execute-task'
             },
             'data'
+        ),
+        Input(
+            {
+                'type': 'store-group',
+                'index': 'confirm-task'
+            },
+            'data'
         )
     ],
     prevent_initial_call=True
 )
 def render_operation_layout(create_task_info,
-                            done_task_info):
+                            confirm_task_info,
+                            done_task_info
+                            ):
     '''负责监听每一步结果Store的更新，从而渲染新一步的页面元素'''
 
     if dash.ctx.triggered_id and create_task_info:
@@ -177,6 +217,17 @@ def render_operation_layout(create_task_info,
 
         # 若本次回调由第一步的目标Store触发
         elif dash.ctx.triggered_id['index'] == 'execute-task':
+            return fac.AntdCol(
+                [
+                    fac.AntdButton(
+                        '确认计算',
+                        id='confirm-button'
+                    )
+                ]
+            )
+
+        # 若本次回调由第二步的目标Store触发
+        elif dash.ctx.triggered_id['index'] == 'confirm-task':
 
             return fac.AntdResult(
                 status='success',

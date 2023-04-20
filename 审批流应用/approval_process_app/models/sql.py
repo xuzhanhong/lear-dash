@@ -14,7 +14,7 @@ from peewee import (
 
 # 创建数据库关联对象
 sql_db = MySQLDatabase(
-    'approval_process_app',
+    'approval_process',
     user='root',
     host='localhost',
     password='12345678'

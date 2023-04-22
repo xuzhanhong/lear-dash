@@ -1,63 +1,49 @@
-# !/usr/bin/env python
-# -*-coding:utf-8 -*-
-
-"""
-# Time       ：2023/4/19
-# Author     ：xuzhanhong
-# Description：非关系型数据库数据模型
-"""
-from pymongo import MongoClient
-
-
-client = MongoClient('localhost', 27017)
-
-# 连接或创建approval_process数据库
-nosql_db = client['approval_process']
-
-
-class ProcessMeta:
+class ProcessRecord:
     """
-    流程元信息表
+    流程记录表
     """
 
     def __init__(self) -> None:
 
-        # 取得process_meta对应集合
-        self.collection = nosql_db['process_meta']
+        # 取得process_record对应集合
+        self.collection = nosql_db['process_record']
 
     @staticmethod
     def init_collection() -> None:
-        """慎用，用于强制初始化process_meta表，执行后会首先清除process_meta表，再创建process_meta表"""
+        """慎用，用于强制初始化process_record表，执行后会首先清除process_record表，再创建process_record表"""
 
-        # 清除process_meta表
-        nosql_db.drop_collection('process_meta')
+        # 清除process_record表
+        nosql_db.drop_collection('process_record')
 
-        # 创建process_meta表
+        # 创建process_record表
         nosql_db.create_collection(
-            'process_meta',
+            'process_record',
             validator={
                 '$jsonSchema': {
                     'bsonType': 'object',
                     'required': [
-                        '流程id', '流程名称', '流程描述', '流程类型',
-                        '可发起部门', '流程表单结构', '审批步骤'
+                        '记录id', '发起人id', '发起时间', '流程详情',
+                        '最新状态', '对应流程id', '办结时间', '流程操作记录'
                     ],
                     'properties': {
-                        '流程id': {
+                        '记录id': {
                             'bsonType': 'string',
-                            'description': '用于存储当前元信息对应流程的唯一标识'
+                            'description': '用于存储流程记录的唯一标识'
                         },
-                        '流程名称': {
+                        '发起人id': {
                             'bsonType': 'string',
-                            'description': '用于存储当前元信息对应流程的名称'
+                            'description': '用于存储当前流程记录发起人的唯一标识'
                         },
-                        '流程描述': {
+                        '发起时间': {
                             'bsonType': 'string',
-                            'description': '用于存储当前元信息对应流程的描述'
+                            'description': '用于存储当前流程记录的发起时间'
                         },
-                        '流程类型': {
-                            'bsonType': 'string',
-                            'description': '用于存储当前元信息对应流程的类型'
+                        '流程详情': {
+                            'bsonType': 'object',
+                            'description': '用于存储当前元信息对应流程的类型',
+                            'items': {
+            
+                            }
                         },
                         '可发起部门': {
                             'bsonType': 'array',
@@ -176,30 +162,18 @@ class ProcessMeta:
         )
 
         # 取得已重置的collection
-        process_meta_collection = nosql_db['process_meta']
+        process_record_collection = nosql_db['process_record']
 
         # 构建针对流程id的唯一值索引约束
-        process_meta_collection.create_index(
+        process_record_collection.create_index(
             '流程id',
             unique=True,
             background=True
         )
 
         # 构建针对流程名称的唯一值索引约束
-        process_meta_collection.create_index(
+        process_record_collection.create_index(
             '流程名称',
             unique=True,
             background=True
         )
-
-
-def init_db(init_process_meta: bool = False):
-    """慎用，用于强制重置数据库用
-
-    Args:
-        init_process_meta (bool, optional): 设置是否针对process_meta进行重置. Defaults to False.
-    """
-
-    if init_process_meta:
-        ProcessMeta.init_collection()
-        print('集合process_meta重置成功')

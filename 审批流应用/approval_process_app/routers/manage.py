@@ -1,3 +1,9 @@
+# -*- encoding: utf-8 -*-
+"""
+@Date       : 2023/04/22
+@Author     : xuzhanhong
+@Description: 管理接口
+"""
 from fastapi import APIRouter
 
 router = APIRouter()

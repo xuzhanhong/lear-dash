@@ -10,6 +10,14 @@ from routers import manage, query
 app = FastAPI()
 
 
+@app.get('/sum-api')
+def sum_api(a: int = 0, b: int = 0) -> dict:
+
+    return {
+        'result': a + b
+    }
+
+
 class PostDemo(BaseModel):
 
     # 声明输入参数input_list

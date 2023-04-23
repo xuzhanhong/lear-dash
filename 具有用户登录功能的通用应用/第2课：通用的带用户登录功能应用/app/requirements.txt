@@ -1,0 +1,7 @@
+dash==2.6.1
+Faker==13.13.0
+feffery_antd_components==0.1.15
+feffery_utils_components==0.0.14
+Flask_Login==0.6.1
+pandas==1.4.2
+peewee==3.14.10

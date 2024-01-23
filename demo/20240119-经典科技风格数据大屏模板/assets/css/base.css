@@ -1,0 +1,107 @@
+/* 禁用浏览器默认margin */
+body {
+    margin: 0 !important;
+    background-color: #0c1422;
+}
+
+/* 注册otf格式自定义字体 */
+@font-face {
+    font-family: '钉钉进步体';
+    src: url('../fonts/DingTalk JinBuTi.ttf');
+}
+
+/* 渐变色字体 */
+.gradient-text {
+    color: transparent;
+    background: linear-gradient(180deg, #e4f4ff, #55bdff);
+    background-clip: text;
+}
+
+/* 左侧边容器 */
+.left-panel {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    width: 30%;
+    position: absolute;
+    left: 0;
+    top: 80px;
+    bottom: 0;
+    padding: 16px 10px;
+    box-sizing: border-box;
+}
+
+/* 左侧边内容项 */
+.left-panel-item {
+    height: 0;
+    flex: 1;
+    background: linear-gradient(90deg, #1766a080, #1766a010);
+}
+
+/* 中部容器 */
+.center-panel {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    width: 40%;
+    position: absolute;
+    left: 30%;
+    top: 80px;
+    bottom: 0;
+    padding: 16px 10px;
+    box-sizing: border-box;
+}
+
+/* 中部容器上方内容项 */
+.center-top-panel-item {
+    flex: none;
+    background: linear-gradient(90deg, #1766a080, #1766a010);
+}
+
+/* 中部容器下方内容项 */
+.center-bottom-panel-item {
+    flex: auto;
+    background: linear-gradient(90deg, #1766a080, #1766a010);
+}
+
+/* 右侧边容器 */
+.right-panel {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    width: 30%;
+    position: absolute;
+    right: 0;
+    top: 80px;
+    bottom: 0;
+    padding: 16px 10px;
+    box-sizing: border-box;
+}
+
+/* 右侧边内容项 */
+.right-panel-item {
+    height: 0;
+    flex: 1;
+    background: linear-gradient(90deg, #1766a080, #1766a010);
+}
+
+/* 通用内容项标题 */
+.panel-item-title {
+    height: 36px;
+    display: flex;
+    align-items: center;
+    padding-left: 5px;
+    background-image: url('../imgs/标题框.png');
+    background-position: left center;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+/* 指标值托盘容器 */
+.index-value-tray {
+    height: 100%;
+    position: relative;
+    background-image: url('../imgs/指标托盘.png');
+    background-position: center;
+    background-repeat: no-repeat;
+}

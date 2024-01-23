@@ -1,0 +1,6 @@
+dash==2.14.2
+Faker==22.4.0
+feffery_antd_charts==0.0.1
+feffery_antd_components==0.3.0b7
+numpy==1.25.2
+pandas==2.2.0

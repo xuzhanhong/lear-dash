@@ -1,0 +1,56 @@
+body{background-color: #f2f2f2;}
+.index-value-card {
+    padding: 10px 25px;
+    border-radius: 15px;
+    box-shadow: 0 5px 30px 0 rgb(0 0 0 / 7%);
+    border: 1px solid transparent;
+    cursor: pointer;
+    position: relative;
+}
+
+.top-right-check {
+    position: absolute;
+    top: 4px;
+    right: 5px;
+    color: rgb(83, 255, 92);
+}
+
+.top-right-check-unselected {
+    display: none;
+}
+
+.index-value-card-selected {
+    border: 1px solid rgb(255, 87, 77);
+}
+/*输入框-标签*/
+.inputGroupLabel{
+    height: 38px;
+    display: flex;
+    margin-right: -1px;
+    /*color: #495057;*/
+    /*line-height: 38px;*/
+    background-color: #e9ecef;
+    border-radius: 10px;
+
+}
+.inputGroupLabel span{
+    color: #495057;
+    align-items: center;
+    padding: .375rem .75rem;
+    border: 1px solid #ced4da;
+    background-color: #e9ecef;
+    line-height: 1.5;
+    border-radius: .25rem;
+    font-size: 1rem;
+    /*border-top-right-radius: 0;*/
+
+}
+.inputGroupLabel span{
+
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+
+}
+.ant-picker{
+    height: 38px!important;
+}

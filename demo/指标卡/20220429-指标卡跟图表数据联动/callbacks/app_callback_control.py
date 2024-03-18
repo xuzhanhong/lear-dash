@@ -29,6 +29,7 @@ def get_all_selected_card_index(clicks, chart_baseData):
     className_trc_list = ['top-right-check-unselected'] * len(clicks)
     # 回调上下文
     ctx = dash.callback_context.triggered[0]['prop_id']
+    print(f'dddd: {ctx}')
     if ctx.find('{"index":') != -1:
         # 指标卡渲染的数据
         current_ctx = eval(ctx[:-9])
@@ -44,6 +45,8 @@ def get_all_selected_card_index(clicks, chart_baseData):
         return className_list, className_trc_list, chart_baseData[0]
     className_list[0] = 'index-value-card index-value-card-selected'
     className_trc_list[0] = 'top-right-check'
+    print(className_list)
+    print(className_trc_list)
     return className_list, className_trc_list, dash.no_update
 
 
@@ -81,8 +84,11 @@ def condition_update(search_index, chart_evt, day, index_card_status, nClicksLis
         index_card_click = index_card_status.index('index-value-card index-value-card-selected')
         nClicksList = [item + 1 if item else 0 if index == index_card_click else dash.no_update for index, item in
                        enumerate(nClicksList)]
+        print(f'当前已选择指标卡索引: {index_card_click}')
+
         # 回调上下文
         ctx = dash.callback_context.triggered[0]['prop_id']
+
         # 查询按钮
         if ctx.find('media-search') != -1:
 

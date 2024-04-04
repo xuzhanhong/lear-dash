@@ -1,0 +1,2 @@
+dash==2.16.1
+feffery_antd_charts==0.0.10

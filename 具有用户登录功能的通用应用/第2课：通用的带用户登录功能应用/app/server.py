@@ -32,12 +32,15 @@ class User(UserMixin):
 @login_manager.user_loader
 def load_user(user_id):
 
-    match_user = list(
+    match_user_lst = list(
         UserAccount
         .select()
         .where(UserAccount.username == user_id)
         .dicts()
-    )[0]
+    )
+    if not match_user_lst:
+        return None
+    match_user = match_user_lst[0]
 
     curr_user = User()
     curr_user.id = user_id
